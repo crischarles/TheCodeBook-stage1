@@ -1,26 +1,25 @@
 #!/bin/bash
 #
 ############################################################
-#created by Crischarles D. Arruda			   #
-#							   #
+#Author: Crischarles D. Arruda			   	   #					   #
+#							   #	
 #This script can be applied only for:			   #
-# Single Substitution Monoalphabetic Cipher for Pt-Br text #
+#-Single Substitution Monoalphabetic Cipher for Pt-Br text #
 #							   #
 ############################################################
 
-#Checking if it is a valid file
+#Checking if sent file is valid
 
 if [ -f "$1" ];
 then
 	echo "File exists"
 	validation=$(file $1 | awk -F ': ' '{print $2}' | awk -F ' ' '{print $2}')
-	echo $validation
 	
 	if [[ $validation == "text"* ]];
 	then
-		echo "valid file"
+		echo "it's a valid file"
 	else
-		echo "invalid file"
+		echo "it's an invalid file, please sent a text file"
 	fi	
 else
 	echo "File doesn't exist"
@@ -29,7 +28,7 @@ fi
 #Array with letters by frequency -PtBr
 ptbrfr=(a e o s r i d m n t c u l p v g q b f h z j x w k y)
 
-#Function to count letters from the file and sort by highest
+#Function to count letters from the file
 function countletters(){
 	position=0
 	for l in {A..Z};
@@ -40,8 +39,8 @@ function countletters(){
 	done	
 }
 
+#Function to sort by largest
 function sortletters(){
-	#Sorting
 	largest=0
 	for n in {0..25};
 	do 
@@ -73,7 +72,6 @@ function letterrep(){
 
 }
 
-
 #Function to decipher the file content
 function decfunction(){
 	
@@ -82,7 +80,7 @@ function decfunction(){
 
 	############################################################################################################
 	#Version 1.0
-	#Deciphering using Letter Frequency analisys 
+	#Deciphering through Letter Frequency analysis 
 	
 	for i in {0..25};
 	do
@@ -107,10 +105,8 @@ function decfunction(){
 	
 	if [ $countcutworda -gt $countcutworde ]
 	then
-		echo $cutworde " is the letter q"
 		wordque=$worde
 	else
-		echo $cutworda " is the letter q"
 		wordque=$worda
 	fi
 
@@ -140,19 +136,17 @@ function decfunction(){
 	#Searching for the word "nao" and removing the possible word already fixed "mao"
 	wordslist=$(cat $decfilepath | grep -o '\b[a-z]\{3\}\b' | sort | uniq -c | sort -nr)
 	wordnao=$(echo $wordslist | grep -Eo '\b\w+ao\b' | sed '/mao/d' | head -n 1)
-	echo "wordnao: " $wordnao
-
+	
 	wordnao=$(echo $wordnao | cut -c 1)
 
         letterrep "n" "$wordnao"
 
 	#############################################################################################################
         #Version 1.3
-        #Where is "H"? Using the word "ha"
+        #Where is "H"? Using the word "ha" to find it
 	
 	wordslist=$(cat $decfilepath | grep -o '\b[a-z]\{2\}\b' | sort | uniq -c | sort -nr)
-	#echo "wordslist: " $wordslist
-
+	
 	#Removing common words with 2 letters ending with "a"
 	endswitha=(da ja la na)
 	for i in {0..3};
@@ -161,10 +155,7 @@ function decfunction(){
 	done
 
 	wordha=$(echo $wordslist | cut -c 1)
-	echo "wordslist: " $wordslist
-	echo "wordha: " $wordha
 	letterrep "h" "$wordha"
-
 }
 
 
@@ -174,15 +165,7 @@ sposition=0
 sortletters
 
 decfunction $1
-
-#Troubleshooting
-#echo ${filefr[*]}
-#echo ${abc[*]}
-#echo "position: $position"
-#echo "letter: $l"
-
-echo "sfilefr ${sfilefr[*]}"
-echo "sabc ${sabc[*]}"
+echo "here is your deciphered message"
 cat /tmp/decfile.txt
 
 
