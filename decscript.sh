@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ############################################################
-#Author: Crischarles D. Arruda			   	   #					   #
+#Author: Crischarles D. Arruda			   	   #					   
 #							   #	
 #This script can be applied only for:			   #
 #-Single Substitution Monoalphabetic Cipher for Pt-Br text #
