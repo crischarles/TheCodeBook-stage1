@@ -35,5 +35,6 @@ The ciphertext from the book is also in this repo, in case you want to try it.
 ## How to run the script
 
 You just have to give a ciphertext file to the script as a parameter, as below:
+
 ./script.sh file.txt
 
