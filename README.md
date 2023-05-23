@@ -1,4 +1,4 @@
-# Deciphering the text of the first stage of the book -The Code Book- using frequency analysis, Pt-Br version
+# Deciphering the text of the first stage of the book -The Code Book- using frequency analysis with SHELL (Single Substitution Monoalphabetic Cipher)
 
 ## Context
 
