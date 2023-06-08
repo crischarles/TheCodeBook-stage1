@@ -1,6 +1,6 @@
-# Deciphering the text of the first stage of the book -The Code Book- using frequency analysis with SHELL (Single Substitution Monoalphabetic Cipher)
+# Single Substitution Monoalphabetic Cipher
 
-## Context
+## Deciphering the text of the first stage of the book -The Code Book- using frequency analysis with SHELL
 
 After reading the book "The Code Book" by Simon Singh, I decided to decipher the present message of the first stage, at first it was a bit confusing because I didn't know if the final message would be in Portuguese or in English. But after applying the frequency analysis and seeing that the message still didn't make sense in English, I applied the frequency analysis in Portuguese.
 
