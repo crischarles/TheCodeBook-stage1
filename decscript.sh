@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ############################################################
-#Author: Crischarles D. Arruda			   	   #					   #
+#Author: Crischarles D. Arruda			   	   #					   
 #							   #	
 #This script can be applied only for:			   #
 #-Single Substitution Monoalphabetic Cipher for Pt-Br text #
@@ -17,12 +17,14 @@ then
 	
 	if [[ $validation == "text"* ]];
 	then
-		echo "it's a valid file"
+		echo "and it's a valid file"
 	else
-		echo "it's an invalid file, please sent a text file"
+		echo "but it's an invalid file, please sent a text file"
+		exit 1
 	fi	
 else
 	echo "File doesn't exist"
+	exit 1
 fi
 
 #Array with letters by frequency -PtBr
