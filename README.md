@@ -38,3 +38,5 @@ You just have to give a ciphertext file to the script as a parameter, as below:
 
 ./script.sh file.txt
 
+The ciphertext must be in upper case, if your ciphertext is in lower case, you can convert it here:
+https://convertcase.net/
